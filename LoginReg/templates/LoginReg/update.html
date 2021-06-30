@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Update User</title>
+</head>
+<body>
+    <div class="jumbotron text-center" style="background-color: aquamarine;">
+        <h1>Update User</h1>
+        <p>Update the loggedin user</p>
+    </div>
+
+    <div class="container">
+        <!-- <div class="row">
+            <div class="col-sm-1 well"></div><div class="col-sm-1 well"></div><div class="col-sm-1 well"></div><div class="col-sm-1 well"></div>
+            <div class="col-sm-1 well"></div><div class="col-sm-1 well"></div><div class="col-sm-1 well"></div><div class="col-sm-1 well"></div>
+            <div class="col-sm-1 well"></div><div class="col-sm-1 well"></div><div class="col-sm-1 well"></div><div class="col-sm-1 well"></div>
+        </div> -->
+        <div class="container">
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{message}}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        <form class="form-horizontal" action="update" method="post">
+        {% csrf_token %}
+            <input type="hidden" class="form-control" id="user_id" value={{user.id}} name="user_id">
+            <div class="form-group">
+                <label class="control-label col-sm-offset-2 col-sm-2" for="first_name">First Name:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="first_name" value={{user.first_name}}
+                        name="first_name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-offset-2 col-sm-2" for="last_name">Last Name:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="last_name" value={{user.last_name}}
+                        name="last_name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-offset-2 col-sm-2" for="birthday">Birthday:</label>
+                <div class="col-sm-5">
+                    <input type="date" class="form-control" id="birthday" name="birthday" value={{birthday}}>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-offset-2 col-sm-2" for="email">Email:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="email" value={{user.email}}
+                        name="email">
+                    <!-- <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email"> -->
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-5">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        <a href="change_password" class="btn btn-warning">Change Password</a>
+                        <a href="delete/{{user.id}}" class="btn btn-danger">Delete User</a>
+                        <a href="/" class="btn btn-info">Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

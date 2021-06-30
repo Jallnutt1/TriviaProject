@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Successful Login</title>
+</head>
+<body>
+    <div class="jumbotron text-center" style="background-color: aquamarine;">
+        <h1>Successfil Login!</h1>
+        <p>You have successfully logged into the system</p>
+    </div>
+
+    <div class="container">
+        <p>Welcome {{user.first_name}} {{user.last_name}}</p>
+        <p>Your User ID is: {{user.id}}</p>
+        <p>Your Birthday is: {{user.birthday}}</p>
+        <p>Your Email is: {{user.email}}</p>
+        <p>Your Hashed Password is: {{user.password}}</p>
+        <p>User was created: {{user.created_at}}</p>
+        <p>User was last update: {{user.updated_at}}</p>
+
+
+        <a href="update" class="btn btn-info">Update</a>
+        <a href="logout" class="btn btn-danger">Logout</a>
+    </div>
+</body>
+</html>

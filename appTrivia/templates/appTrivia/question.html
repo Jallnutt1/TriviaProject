@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Question</title>
+</head>
+<body>
+    <div class="container text-center">
+
+        {% if user2 %}
+            <div class="row well">
+                <h2 class="col-sm-4">{{user1.first_name}} {{user1.last_name}}</h2>
+                <h2 class="col-sm-4">vs</h2>
+                <h2 class="col-sm-4">{{user2.first_name}} {{user2.last_name}}</h2>
+            </div>
+        {% else %}
+            <div class="row well">
+                <h2 class="col-sm-12">SOLO GAME with {{user1.first_name}} {{user1.last_name}}</h2>
+            </div>
+        {% endif %}
+
+        <div>
+            <h1 class="text-center">{{copy}}</h1>
+        </div>
+        
+        <div>
+            <div class="btn-group btn-group-justified">
+                <a class="btn btn-info" href="/checkAnswer/{{option1}}">{{option1}}</a>
+                <a class="btn btn-warning" href="/checkAnswer/{{option2}}">{{option2}}</a>
+            </div>
+            <div class="btn-group btn-group-justified">
+                <a class="btn btn-danger" href="/checkAnswer/{{option3}}">{{option3}}</a>
+                <a class="btn btn-success" href="/checkAnswer/{{option4}}">{{option4}}</a>
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+</html>

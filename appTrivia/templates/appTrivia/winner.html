@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Winner</title>
+</head>
+<body>
+    <div class="container text-center">
+        <div class="jumbotron">
+            {% if game.numberOfPlayers == 1 %}
+                <h1>Thanks for Playing {{game.player_1.first_name}} {{game.player_1.last_name}}</h1>
+            {% else %}
+                <h1>WINNER</h1>
+            {% endif %}
+        </div>
+
+        {% if game.numberOfPlayers == 1 %}
+            <h2>{{game.player_1.first_name}} you scored a</h2>
+            <h1>{{game.player_1_score}}</h1>
+            <h2>Nice work!</h2>
+        {% else %}
+            {% if game.player_1_score > game.player_2_score %}
+                <h2>{{game.player_1.first_name}} {{game.player_1.last_name}} WON!</h2>
+                <h1>With a score of {{game.player_1_score}}</h1>
+                <h2>Nice work!</h2>
+            {% elif game.player_1_score < game.player_2_score %}
+                <h2>{{game.player_2.first_name}} {{game.player_2.last_name}} WON!</h2>
+                <h1>With a score of {{game.player_2_score}}</h1>
+                <h2>Nice work!</h2>
+            {% else %}
+                <h2>You Tied</h2>
+                <h1>With a score of {{game.player_2_score}}</h1>
+                <h2>Nice work!</h2>
+            {% endif %}
+            
+        {% endif %}
+
+
+        <p><a class="btn btn-primary" href="leaderboard">Show the Leaderboard</a></p>
+
+    </div>
+</body>
+</html>

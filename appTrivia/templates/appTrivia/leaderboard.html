@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Leaderboard</title>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>LEADERBOARD</h1>
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Game ID</th>
+                    <th>Player 1</th>
+                    <th>Player 1 Score</th>
+                    <th>Player 2</th>
+                    <th>Player 2 Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for game in all_games %}
+                <tr>
+                    <td>{{game.id}}</td>
+                    <td>{{game.player_1.first_name}} {{game.player_1.last_name}}</td>
+                    <td>{{game.player_1_score}}</td>
+                    <td>{{game.player_2.first_name}} {{game.player_2.last_name}}</td>
+                    <td>{{game.player_2_score}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p><a class="btn btn-warning" href="/access/logout">EXIT</a></p>
+
+    </div>
+</body>
+</html>
