@@ -103,6 +103,7 @@ def getQuestion(request):
     return questionDict
 
 def checkAnswer(request, selection):
+    print(selection, request.session['answer'])
     current_game = Game.objects.get(id=request.session['game_id'])
     if selection == request.session['answer']:
         if current_game.whoseTurn == 1:
