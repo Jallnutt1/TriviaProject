@@ -10,6 +10,7 @@ urlpatterns = [
     path('leaderboard',views.leaderboard),
     path('winner',views.winner),
     path('addQuestion',views.addQuestion),
+    path('addCollection',views.addCollection),
     path('newGame',views.newGame),
     path('checkAnswer/<str:selection>',views.checkAnswer)
     # path('guestPlayer',views.guestPlayer)

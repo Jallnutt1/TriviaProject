@@ -26,11 +26,23 @@
             </div>
         {% endif %}
 
-        
-        <p><a class="btn btn-success" href="/newGame">Start <br> Game</a></p>
+        <form action="newGame" method="POST">
+            {% csrf_token %}
+            <div class="form-group row">
+                <div class="col-md-offset-4 col-md-4">
+                    <label class="control-label" for="collection_id">Choose a Collection of Questions</label>
+                    <select class="form-control col-md-4" id="collection_id" name="collection_id">
+                        {% for collection in all_collections %}
+                        <option value={{collection.id}}>{{collection.collection_name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+                <p><button type="submit" class="btn btn-success">Start <br> Game</button></p>
+        </form>
 
         {% if not user2 %}
-                <p><a class="btn btn-warning" href="/addSecondPlayer">Add a Player</a></p>
+                <p><a class="btn btn-warning" href="addSecondPlayer">Add a Player</a></p>
         {% endif %}
 
     </div>

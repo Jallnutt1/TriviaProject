@@ -44,7 +44,7 @@ def login(request):
         if errors:
             for key, value in errors.items():
                 messages.error(request, value)
-            return redirect('/access/login')
+            return redirect('/access/playerLogin')
         else:
             user = User.objects.filter(email=request.POST['email'])
             loggedin_user = user[0]
