@@ -12,6 +12,7 @@ urlpatterns = [
     path('addQuestion',views.addQuestion),
     path('addCollection',views.addCollection),
     path('newGame',views.newGame),
-    path('checkAnswer/<str:selection>',views.checkAnswer)
+    path('checkAnswer/<str:selection>',views.checkAnswer),
+    path('quitGame',views.quitGame)
     # path('guestPlayer',views.guestPlayer)
 ]

@@ -16,12 +16,16 @@
 <!-- <body> -->
 <body id="bg">
 
-    <div class="jumbotron text-center" style="background-color: aquamarine">
-        <h1>Login & Registration</h1>
-        <h4>This page uses bootstrap</h4>
-    </div>
-
-    <div class="container well well-sm bg-grey">
+    
+    <div class="container bg-grey">
+        <nav style="background-color: aquamarine">
+            <div class="container col-md-offset-10 col-md-2">
+                <a href="/access/logout">Return to Main Page</a>
+            </div>
+        </nav>
+        <div class="jumbotron text-center" style="background-color: aquamarine">
+            <h1>Login & Registration</h1>
+        </div>
         {% if messages %}
         <ul>
             {% for message in messages %}
@@ -29,7 +33,7 @@
             {% endfor %}
         </ul>
         {% endif %}
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-sm-6">
                     <h3 class="text-center">Sign up!</h3>
@@ -111,7 +115,7 @@
                     </form>
                     <br>
                     <div class="col-sm-offset-6 col-sm-6">
-                        <a href="show_all" class="btn btn-default">Show all Users</a>
+                        <a href="show_all" class="btn btn-warning">Show all Users</a>
                     </div>
                 </div>
             </div>

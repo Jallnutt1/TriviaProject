@@ -11,7 +11,12 @@
 </head>
 <body>
     <div class="container text-center">
-        <div class="jumbotron">
+        <nav style="background-color: aquamarine">
+            <div class="container col-md-offset-10 col-md-2">
+                <a href="/access/logout">Return to Main Page</a>
+            </div>
+        </nav>
+        <div class="jumbotron" style="background-color: aquamarine">
             <h1>Players</h1>
         </div>
 
@@ -46,5 +51,8 @@
         {% endif %}
 
     </div>
+    <footer class="container-fluid bg-4 text-center">
+        <p><a class="btn btn-default" href="/access/logout">Return to Main Page</a></p> 
+    </footer>
 </body>
 </html>

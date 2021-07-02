@@ -11,9 +11,21 @@
 </head>
 <body>
     <div class="container">
-        <div class="jumbotron text-center">
+        <nav style="background-color: aquamarine">
+            <div class="container col-md-offset-10 col-md-2">
+                <a href="/access/logout">Return to Main Page</a>
+            </div>
+        </nav>
+        <div class="jumbotron text-center" style="background-color: aquamarine">
             <h1>Create a New Question</h1>
         </div>
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{message}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
 
         <form class="form-horizontal" action="addCollection" method="post">
         {% csrf_token %}
@@ -112,7 +124,6 @@
             {% endfor %}
         </tbody>
         </table>
-
     </div>
 </body>
 </html>

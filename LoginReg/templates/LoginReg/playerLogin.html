@@ -16,16 +16,21 @@
 <!-- <body> -->
 <body id="bg">
 
-    <div class="jumbotron text-center" style="background-color: aquamarine">
-        {% if addSecondPlayer %}
-            <h1>Second Player</h1>
-        {% else %}
-            <h1>First Player</h1>
-        {% endif %}
-        <h4>Register, Login, or Play as a Guest</h4>
-    </div>
-
-    <div class="container well well-sm bg-grey">
+    
+    <div class="container bg-grey">
+        <nav style="background-color: aquamarine">
+            <div class="container col-md-offset-10 col-md-2">
+                <a href="/access/logout">Return to Main Page</a>
+            </div>
+        </nav>
+        <div class="jumbotron text-center" style="background-color: aquamarine">
+            {% if addSecondPlayer %}
+                <h1>Second Player</h1>
+            {% else %}
+                <h1>First Player</h1>
+            {% endif %}
+            <h4>Register, Login, or Play as a Guest</h4>
+        </div>
         {% if messages %}
         <ul>
             {% for message in messages %}
@@ -115,7 +120,7 @@
                     </form>
                     <br>
                     <div class="col-sm-offset-6 col-sm-6">
-                        <h2><a href="/access/playAsGuest" class="btn btn-default">Play as Guest</a></h2>
+                        <h2><a href="/access/playAsGuest" class="btn btn-success">Play as Guest</a></h2>
                     </div>
                 </div>
             </div>

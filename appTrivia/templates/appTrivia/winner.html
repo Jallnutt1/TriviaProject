@@ -11,7 +11,12 @@
 </head>
 <body>
     <div class="container text-center">
-        <div class="jumbotron">
+        <nav style="background-color: aquamarine">
+            <div class="container col-md-offset-10 col-md-2">
+                <a href="/access/logout">Return to Main Page</a>
+            </div>
+        </nav>
+        <div class="jumbotron" style="background-color: aquamarine">
             {% if game.numberOfPlayers == 1 %}
                 <h1>Thanks for Playing {{game.player_1.first_name}} {{game.player_1.last_name}}</h1>
             {% else %}

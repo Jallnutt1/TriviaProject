@@ -78,7 +78,6 @@ def playAsGuest(request):
     else:
         guest_2 = User.objects.create(first_name="Guest", last_name="2")
         request.session['user_id'] = guest_2.id
-    print(request.session['user_id'])
     return redirect('/gameStage')
     
 def show_all(request):
@@ -88,7 +87,6 @@ def show_all(request):
     return render(request, 'LoginReg/show_all.html', context)
 
 def delete(request, user_id):
-    #if statement to compare User_id with request.session
     user_to_delete = User.objects.get(id=user_id)
     user_to_delete.delete()
     return redirect('/access')

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,31 +10,40 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Question Stage</title>
 </head>
+
 <body>
     <div class="container text-center">
+        <nav style="background-color: aquamarine">
+            <div class="container col-md-offset-10 col-md-2">
+                <a href="/quitGame">Return to Main Page</a>
+            </div>
+        </nav>
         {% if user2 %}
-            <div class="row well">
+        <div class="jumbotron text-center" style="background-color: aquamarine">
+            <div class="row">
                 <h2 class="col-sm-4">{{user1.first_name}} {{user1.last_name}}</h2>
                 <h2 class="col-sm-4">vs</h2>
                 <h2 class="col-sm-4">{{user2.first_name}} {{user2.last_name}}</h2>
             </div>
-
+        </div>
             {% if whosTurn == 1 %}
                 <h1>{{user1.first_name}} {{user1.last_name}} it's your turn!</h1>
             {% else %}
                 <h1>{{user2.first_name}} {{user2.last_name}} it's your turn!</h1>
             {% endif %}
-        {% else %}
-            <div class="row well">
-                <h2 class="col-sm-12">SOLO GAME with {{user1.first_name}} {{user1.last_name}}</h2>
-            </div>
 
+        {% else %}
+            <div class="jumbotron text-center" style="background-color: aquamarine">
+                <div class="row">
+                    <h2 class="col-sm-12">SOLO GAME with {{user1.first_name}} {{user1.last_name}}</h2>
+                </div>
+            </div>
             <h1>Your question is ready!</h1>
         {% endif %}
 
-            <h2>Click</h2>
-            <h2><a class="btn btn-success" href="question">HERE</a></h2>
-            <h2>For your question</h2>
+        <h2>Click</h2>
+        <h2><a class="btn btn-success" href="question">HERE</a></h2>
+        <h2>For your question</h2>
     </div>
 </body>
 </html>

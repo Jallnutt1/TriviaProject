@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from LoginReg.models import *
 from .models import *
 import random
@@ -47,9 +48,15 @@ def winner(request):
 
 def addQuestion(request):
     if request.method == "POST":
-        collection = Collection.objects.get(id=request.POST['collection_id'])
-        Question.objects.create(copy=request.POST['question'],answer=request.POST['answer'],wrong1=request.POST['wrong1'],wrong2=request.POST['wrong2'],wrong3=request.POST['wrong3'],collection=collection)
-        return redirect('/addQuestion')
+        errors = Question.objects.question_regulator(request.POST)
+        if errors:
+            for key, value in errors.items():
+                messages.error(request, value)
+            return redirect('/addQuestion')
+        else:
+            collection = Collection.objects.get(id=request.POST['collection_id'])
+            Question.objects.create(copy=request.POST['question'],answer=request.POST['answer'],wrong1=request.POST['wrong1'],wrong2=request.POST['wrong2'],wrong3=request.POST['wrong3'],collection=collection)
+            return redirect('/addQuestion')
     else:
         context={
             'questions':Question.objects.all(),
@@ -59,8 +66,14 @@ def addQuestion(request):
 
 def addCollection(request):
     if request.method == "POST":
-        Collection.objects.create(collection_name=request.POST['new_collection'])
-        return redirect ('/addQuestion')
+        errors = Collection.objects.collection_regulator(request.POST)
+        if errors:
+            for key, value in errors.items():
+                messages.error(request, value)
+            return redirect('/addQuestion')
+        else:
+            Collection.objects.create(collection_name=request.POST['new_collection'])
+            return redirect ('/addQuestion')
 
 def oneOrTwoPlayers(request):
     if request.session['addSecondPlayer'] == False:
@@ -137,3 +150,8 @@ def checkAnswer(request, selection):
         return redirect('/qStage')
     else:
         return redirect('/winner')
+
+def quitGame(request):
+    game_to_delete = Game.objects.get(id=request.session['game_id'])
+    game_to_delete.delete()
+    return redirect('/access/logout')
