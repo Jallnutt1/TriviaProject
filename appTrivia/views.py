@@ -97,7 +97,6 @@ def newGame(request):
             second_player = User.objects.get(id = request.session['second_player_id'])
             new_game = Game.objects.create(numberOfPlayers=2, whoseTurn=1, counter=0, player_1=first_player, player_1_score=0, player_2=second_player, player_2_score=0)
 
-        print('this is a debug statement')
         request.session['game_id'] = new_game.id 
         request.session['collection_id'] = request.POST['collection_id']
         return redirect('/qStage')
